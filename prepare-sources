@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ $# != 1 ]]; then
+    printf 'Usage: %s OUTPUT_DIRECTORY\n' "$0" >&2
+    exit 2
+fi
+repo=$(cd -- "$(dirname -- "$0")" && pwd)
+mkdir -p -- "$1"
+cd -- "$1"
+curl --fail --location --retry 2 --output source-v0.57.2.tar.gz \
+    https://github.com/hyprwm/Hyprland/releases/download/v0.57.2/source-v0.57.2.tar.gz
+curl --fail --location --retry 2 --output glaze-7.2.0.tar.gz \
+    https://codeload.github.com/stephenberry/glaze/tar.gz/refs/tags/v7.2.0
+sha256sum --check "$repo/sources.sha256"
+cp -- "$repo"/patches/0.57.2/*.patch .
