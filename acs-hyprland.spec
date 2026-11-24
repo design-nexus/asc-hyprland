@@ -96,6 +96,7 @@ export GIT_COMMIT_HASH=11cbc6c577b84ffb1edf4df3fc5b6128c3ae6947
 export GIT_TAG=v%{version}
 %cmake -G Ninja \
     -DBUILD_TESTING=OFF \
+    -DNO_UWSM=ON \
     -DFETCHCONTENT_FULLY_DISCONNECTED=ON \
     -DFETCHCONTENT_SOURCE_DIR_GLAZE="$PWD/subprojects/glaze-7.2.0" \
     -DCMAKE_DISABLE_FIND_PACKAGE_glaze=ON
@@ -103,6 +104,8 @@ export GIT_TAG=v%{version}
 
 %install
 %cmake_install
+install -d %{buildroot}%{_userunitdir}
+mv %{buildroot}%{_libdir}/systemd/user/hyprland-session.target %{buildroot}%{_userunitdir}/
 install -d %{buildroot}%{_libdir}/pkgconfig
 mv %{buildroot}%{_datadir}/pkgconfig/hyprland.pc %{buildroot}%{_libdir}/pkgconfig/
 
