@@ -1,7 +1,7 @@
 # AscendantOS Hyprland
 
 AscendantOS packages Hyprland v0.57.2 as `acs-hyprland` for Fedora 45.
-The 14 patches come from nyxos-project/nyx-hyprland at
+The 14-patch series was imported from source revision
 `b603f3515f6685c6e7efebc16e250577b15e74ad`. They preserve workspace swipe
 wrapping, experimental virtual monitors, fullscreen workspaces, and top-layer
 transitions. Virtual monitors remain opt-in. The patch emails retain their
