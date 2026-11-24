@@ -24,7 +24,7 @@ Patch0014:      0014-layers-work-the-slide-offset-out-once-per-monitor-pe.patch
 BuildRequires:  cmake >= 3.30
 BuildRequires:  gcc-c++
 BuildRequires:  glslang-devel
-BuildRequires:  hyprwayland-scanner >= 0.3.10
+BuildRequires:  hyprwayland-scanner-devel
 BuildRequires:  ninja-build
 BuildRequires:  patch
 BuildRequires:  pkgconfig(aquamarine) >= 0.15.0
@@ -37,6 +37,7 @@ BuildRequires:  pkgconfig(hyprgraphics) >= 0.5.1
 BuildRequires:  pkgconfig(hyprland-protocols) >= 0.8.0
 BuildRequires:  pkgconfig(hyprlang) >= 0.6.7
 BuildRequires:  pkgconfig(hyprutils) >= 0.14.3
+BuildRequires:  pkgconfig(hyprwire)
 BuildRequires:  pkgconfig(lcms2)
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libdrm)
@@ -47,6 +48,7 @@ BuildRequires:  pkgconfig(muparser)
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  pkgconfig(pixman-1)
 BuildRequires:  pkgconfig(re2)
+BuildRequires:  pkgconfig(readline)
 BuildRequires:  pkgconfig(tomlplusplus)
 BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.49
@@ -123,3 +125,7 @@ mv %{buildroot}%{_datadir}/pkgconfig/hyprland.pc %{buildroot}%{_libdir}/pkgconfi
 %files devel
 %{_includedir}/hyprland/
 %{_libdir}/pkgconfig/hyprland.pc
+
+%changelog
+* Tue Nov 24 2026 AscendantOS contributors - 0.57.2-1
+- Package the complete AscendantOS patch series against Hyprland 0.57.2.
